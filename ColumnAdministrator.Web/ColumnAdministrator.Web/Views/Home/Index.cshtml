@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Бытовая техника";
+}
+
+<div class="row" data-bind="blockUI: ds.indicator">
+    <div class="page-header">
+        <h1>
+            @ViewBag.Title
+            <small>список</small>
+        </h1>
+    </div>
+    <div class="margin20">
+        <span data-bind="text: clock.time"></span>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default" type="button" data-bind="command: addCommand"><i class="glyphicon glyphicon-plus"></i></button>
+        <button class="btn btn-default" type="button" data-bind="command: editCommand"><i class="glyphicon glyphicon-pencil"></i></button>
+        <button class="btn btn-default" type="button" data-bind="command: deleteCommand"><i class="glyphicon glyphicon-trash"></i></button>
+    </div>
+    <div class="margin20">
+        <span data-bind="template: {name:'appliance.table', data: ds}"></span>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/site")
+    <script src="~/Scripts/app/site.vm.homeIndex.js"></script>
+}
